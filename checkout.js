@@ -68,7 +68,7 @@ mesaj+="💰 Toplam: "+(toplam+50)+" ₺%0A%0A";
 
 mesaj+="📝 Not:%0A"+not;
 
-const telefonNo="90555XXXXXXXX";
+const telefonNo="905538577094";
 
 window.open("https://wa.me/"+telefonNo+"?text="+mesaj,"_blank");
 
