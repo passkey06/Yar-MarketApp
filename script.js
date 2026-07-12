@@ -75,3 +75,25 @@ onclick="sepeteEkle('${doc.id}','${urun.ad}',${urun.fiyat},'${urun.resim}')">
 }
 
 urunleriYukle();
+
+function sepeteEkle(id, ad, fiyat, resim) {
+
+    const urun = cart.find(item => item.id === id);
+
+    if (urun) {
+        urun.adet++;
+    } else {
+        cart.push({
+            id: id,
+            ad: ad,
+            fiyat: fiyat,
+            resim: resim,
+            adet: 1
+        });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    cartCount.innerText = cart.reduce((toplam, item) => toplam + item.adet, 0);
+
+}
