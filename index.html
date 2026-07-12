@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Yarış Market</title>
 
 <link rel="stylesheet" href="style.css">
+
 <link rel="manifest" href="manifest.json">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -24,54 +27,38 @@
 
 <h1>Yarış Market</h1>
 
-<p>İhtiyacınız olan her şey 1 telefon uzağınızda.</p>
+<p>İhtiyacınız Olan Her Şey 1 Telefon Uzağınızda</p>
 
 </header>
 
-<section class="search">
+<div class="search">
 
 <input
-type="text"
 id="search"
-placeholder="Ürün Ara...">
+type="text"
+placeholder="Ürün ara...">
 
-</section>
-
-<section class="categories">
-
-<div class="category">
-🥖
-<h3>Temel Gıda</h3>
 </div>
 
-<div class="category">
-🥬
-<h3>Manav</h3>
+<div id="categories">
+
 </div>
 
-<div class="category">
-🥩
-<h3>Şarküteri</h3>
+<div id="products">
+
 </div>
 
-<div class="category">
-🥤
-<h3>İçecekler</h3>
+<div id="cart">
+
+🛒 Sepetim
+
+<span id="cartCount">
+
+0
+
+</span>
+
 </div>
-
-<div class="category">
-🍪
-<h3>Atıştırmalık</h3>
-</div>
-
-<div class="category">
-🧴
-<h3>Temizlik</h3>
-</div>
-
-</section>
-
-<div id="products"></div>
 
 <script src="script.js"></script>
 
