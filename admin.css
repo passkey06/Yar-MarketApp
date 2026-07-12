@@ -1,0 +1,110 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f5f6fa;
+}
+
+header{
+background:#0b6b3a;
+color:white;
+padding:25px;
+text-align:center;
+box-shadow:0 4px 12px rgba(0,0,0,.15);
+}
+
+header h1{
+font-size:28px;
+}
+
+header p{
+margin-top:8px;
+opacity:.9;
+}
+
+.container{
+padding:20px;
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.container input{
+padding:15px;
+border:1px solid #ddd;
+border-radius:15px;
+font-size:16px;
+}
+
+.container button{
+background:#0b6b3a;
+color:white;
+border:none;
+padding:18px;
+border-radius:15px;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.title{
+padding:20px;
+color:#0b6b3a;
+}
+
+#urunListesi{
+padding:20px;
+}
+
+.urunKart{
+background:white;
+border-radius:18px;
+padding:15px;
+margin-bottom:15px;
+box-shadow:0 3px 10px rgba(0,0,0,.08);
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.urunKart img{
+width:80px;
+height:80px;
+object-fit:cover;
+border-radius:12px;
+}
+
+.bilgiler{
+flex:1;
+}
+
+.bilgiler h3{
+font-size:18px;
+margin-bottom:6px;
+}
+
+.bilgiler p{
+font-size:15px;
+color:#666;
+margin-bottom:4px;
+}
+
+.fiyat{
+font-size:22px;
+font-weight:bold;
+color:#0b6b3a;
+}
+
+.silBtn{
+background:#e53935;
+color:white;
+border:none;
+padding:12px 18px;
+border-radius:12px;
+font-weight:bold;
+cursor:pointer;
+}
