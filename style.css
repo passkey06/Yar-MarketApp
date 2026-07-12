@@ -80,3 +80,12 @@ header p{
 #products{
     padding:15px;
 }
+.category{
+cursor:pointer;
+}
+
+.category:hover{
+transform:scale(1.03);
+transition:.3s;
+background:#eaf8ef;
+}
