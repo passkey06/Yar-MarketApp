@@ -25,7 +25,7 @@ async function urunleriGetir() {
 
   try {
 
-    const querySnapshot = await getDocs(collection(db, "Ürünler"));
+    const querySnapshot = await getDocs(collection(db, "urunler"));
 
     products.innerHTML = "";
 
