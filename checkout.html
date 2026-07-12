@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Siparişi Tamamla</title>
+
+<link rel="stylesheet" href="checkout.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<header>
+
+<h1>Siparişi Tamamla</h1>
+
+<p>Adres ve ödeme bilgilerinizi giriniz</p>
+
+</header>
+
+<div class="container">
+
+<label>Ad Soyad</label>
+
+<input
+type="text"
+id="adSoyad"
+placeholder="Ad Soyad">
+
+<label>Telefon</label>
+
+<input
+type="tel"
+id="telefon"
+placeholder="05xx xxx xx xx">
+
+<label>Mahalle</label>
+
+<input
+type="text"
+id="mahalle">
+
+<label>Sokak / Cadde</label>
+
+<input
+type="text"
+id="sokak">
+
+<label>Bina No</label>
+
+<input
+type="text"
+id="bina">
+
+<label>Daire No</label>
+
+<input
+type="text"
+id="daire">
+
+<label>Adres Tarifi</label>
+
+<textarea
+id="not"
+rows="4"
+placeholder="Örn: Zili çalmayın, telefonla arayın."></textarea>
+
+<h2>Ödeme Yöntemi</h2>
+
+<label class="radio">
+
+<input
+type="radio"
+name="odeme"
+value="Kapıda Nakit"
+checked>
+
+Kapıda Nakit
+
+</label>
+
+<label class="radio">
+
+<input
+type="radio"
+name="odeme"
+value="Kapıda Kart">
+
+Kapıda Kart
+
+</label>
+
+<button id="whatsappBtn">
+
+WhatsApp ile Sipariş Gönder
+
+</button>
+
+</div>
+
+<script src="checkout.js"></script>
+
+</body>
+
+</html>
