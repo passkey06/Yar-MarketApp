@@ -1,5 +1,9 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import {
+  getFirestore,
+  collection,
+  getDocs
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyClZ4vbfNnWPQi6uTwbJH_6d1TRM_OoBqE",
@@ -13,4 +17,46 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-console.log("Firebase bağlantısı başarılı.");
+async function urunleriGetir() {
+
+  const products = document.getElementById("products");
+
+  products.innerHTML = "<p>Ürünler yükleniyor...</p>";
+
+  try {
+
+    const querySnapshot = await getDocs(collection(db, "Ürünler"));
+
+    products.innerHTML = "";
+
+    querySnapshot.forEach((doc) => {
+
+      const urun = doc.data();
+
+      products.innerHTML += `
+        <div class="product">
+          <div>
+            <h3>${urun.ad}</h3>
+            <p>${urun.kategori}</p>
+            <div class="price">${urun.fiyat} ₺</div>
+          </div>
+
+          <button class="add">
+            Sepete Ekle
+          </button>
+        </div>
+      `;
+
+    });
+
+  } catch (e) {
+
+    console.error(e);
+
+    products.innerHTML = "<p>Ürünler yüklenemedi.</p>";
+
+  }
+
+}
+
+urunleriGetir();
