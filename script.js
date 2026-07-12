@@ -1,67 +1,61 @@
-const products = {
-  "Temel Gıda": [
-    "Unlu Mamuller",
-    "Bakliyat",
-    "Makarna",
-    "Sıvı Yağlar"
-  ],
-  "Manav": [
-    "Domates",
-    "Patates",
-    "Soğan",
-    "Muz",
-    "Şeftali",
-    "Biber"
-  ],
-  "Şarküteri": [
-    "Tavuk",
-    "Kırmızı Et"
-  ],
-  "İçecekler": [
-    "Su",
-    "Maden Suyu",
-    "Kola",
-    "Soğuk Çay",
-    "Süt"
-  ],
-  "Atıştırmalık": [
-    "Ülker",
-    "Eti"
-  ],
-  "Temizlik": [
-    "Çamaşır Deterjanı",
-    "Bulaşık Deterjanı"
-  ]
+// Firebase
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+  getFirestore,
+  collection,
+  getDocs
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+// Firebase Ayarları
+const firebaseConfig = {
+  apiKey: "BURAYA_API_KEY",
+  authDomain: "BURAYA_AUTH_DOMAIN",
+  projectId: "BURAYA_PROJECT_ID",
+  storageBucket: "BURAYA_STORAGE_BUCKET",
+  messagingSenderId: "BURAYA_MESSAGING_SENDER_ID",
+  appId: "BURAYA_APP_ID"
 };
 
-const cards = document.querySelectorAll(".category");
-const area = document.getElementById("products");
+// Firebase Başlat
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-cards.forEach(card => {
+// Ürünleri Yükle
+async function urunleriYukle() {
+  const urunAlani = document.getElementById("urunler");
 
-card.onclick = () => {
+  urunAlani.innerHTML = "<p>Ürünler yükleniyor...</p>";
 
-const category = card.querySelector("h3").innerText;
+  try {
+    const snapshot = await getDocs(collection(db, "urunler"));
 
-let html = `<h2>${category}</h2>`;
+    urunAlani.innerHTML = "";
 
-products[category].forEach(item => {
+    snapshot.forEach((doc) => {
+      const urun = doc.data();
 
-html += `
-<div class="product">
-${item}
-</div>
-`;
+      urunAlani.innerHTML += `
+        <div class="urun-kart">
+          <img src="${urun.resim}" alt="${urun.ad}">
+          <h3>${urun.ad}</h3>
+          <p>${urun.fiyat} ₺</p>
+          <button onclick="sepeteEkle('${doc.id}')">
+            Sepete Ekle
+          </button>
+        </div>
+      `;
+    });
 
-});
+  } catch (err) {
+    urunAlani.innerHTML = "<p>Ürünler yüklenemedi.</p>";
+    console.error(err);
+  }
+}
 
-area.innerHTML = html;
-
-window.scrollTo({
-top:document.body.scrollHeight,
-behavior:"smooth"
-});
-
+// Sepet
+window.sepeteEkle = function(id) {
+  alert(id + " sepete eklendi.");
 };
 
-});
+// Sayfa Açılınca
+urunleriYukle();
