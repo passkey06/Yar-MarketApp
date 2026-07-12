@@ -89,3 +89,12 @@ transform:scale(1.03);
 transition:.3s;
 background:#eaf8ef;
 }
+.product{
+background:white;
+padding:18px;
+margin:12px 15px;
+border-radius:15px;
+box-shadow:0 3px 10px rgba(0,0,0,.08);
+font-size:18px;
+font-weight:600;
+}
