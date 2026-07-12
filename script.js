@@ -18,45 +18,32 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 async function urunleriGetir() {
-
   const products = document.getElementById("products");
 
-  products.innerHTML = "<p>Ürünler yükleniyor...</p>";
-
   try {
-
-    const querySnapshot = await getDocs(collection(db, "urunler"));
+    const snapshot = await getDocs(collection(db, "urunler"));
 
     products.innerHTML = "";
 
-    querySnapshot.forEach((doc) => {
-
+    snapshot.forEach((doc) => {
       const urun = doc.data();
 
       products.innerHTML += `
         <div class="product">
-          <div>
-            <h3>${urun.ad}</h3>
-            <p>${urun.kategori}</p>
-            <div class="price">${urun.fiyat} ₺</div>
-          </div>
-
-          <button class="add">
-            Sepete Ekle
-          </button>
+          <h3>${urun.ad}</h3>
+          <p>${urun.kategori}</p>
+          <div class="price">${urun.fiyat} ₺</div>
         </div>
       `;
-
     });
 
+    if (snapshot.empty) {
+      products.innerHTML = "<p>Koleksiyon boş.</p>";
+    }
+
   } catch (e) {
-
-    console.error(e);
-
-    products.innerHTML = "<p>Ürünler yüklenemedi.</p>";
-
+    products.innerHTML = `<p style="color:red;">${e.message}</p>`;
   }
-
 }
 
 urunleriGetir();
